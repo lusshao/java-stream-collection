@@ -1,7 +1,5 @@
 package com.thoughtworks.collection;
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.Lister;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -45,11 +43,11 @@ public class CollectionOperator {
         return Arrays.stream(array).skip(array.length-1).findFirst().getAsInt();
     }
 
-    public List<Integer> popCommonElement(int[] firstArray, int[] secondArray) {
-        throw new NotImplementedException();
-    }
+//    public List<Integer> popCommonElement(int[] firstArray, int[] secondArray) {
+//        throw new NotImplementedException();
+//    }
 
-    public List<Integer> addUncommonElement(Integer[] firstArray, Integer[] secondArray) {
-        throw new NotImplementedException();
-    }
+//    public List<Integer> addUncommonElement(Integer[] firstArray, Integer[] secondArray) {
+//        throw new NotImplementedException();
+//    }
 }
