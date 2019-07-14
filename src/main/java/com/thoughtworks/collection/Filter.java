@@ -11,7 +11,7 @@ public class Filter {
     List<Integer>  array;
 
     public Filter(List<Integer> array) {
-     this.array = array;
+        this.array = array;
     }
 
     public List<Integer> filterEven() {

@@ -3,10 +3,17 @@ package com.thoughtworks.collection;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Add {
     public int getSumOfEvens(int leftBorder, int rightBorder) {
-        throw new NotImplementedException();
+        if (leftBorder > rightBorder) {
+            leftBorder += rightBorder;
+            rightBorder = leftBorder - rightBorder;
+            leftBorder -= rightBorder;
+        }
+        return IntStream.rangeClosed(leftBorder, rightBorder).filter(num -> num % 2 == 0).sum();
     }
 
     public int getSumOfOdds(int leftBorder, int rightBorder) {
@@ -14,11 +21,16 @@ public class Add {
     }
 
     public int getSumTripleAndAddTwo(List<Integer> arrayList) {
-        throw new NotImplementedException();
+        return arrayList.stream().mapToInt(x -> x).map(x -> x * 3 + 2).sum();
     }
 
     public List<Integer> getTripleOfOddAndAddTwo(List<Integer> arrayList) {
-        throw new NotImplementedException();
+        return arrayList.stream().map(num -> {
+            if (num % 2 != 0) {
+                num = num * 3 + 2;
+            }
+            return num;
+        }).collect(Collectors.toList());
     }
 
     public int getSumOfProcessedOdds(List<Integer> arrayList) {
@@ -30,7 +42,7 @@ public class Add {
 //    }
 
     public double getAverageOfEven(List<Integer> arrayList) {
-        throw new NotImplementedException();
+        return arrayList.stream().mapToDouble(x -> x).average().orElse(Double.NaN);
     }
 
     public boolean isIncludedInEvenIndex(List<Integer> arrayList, Integer specialElment) {
@@ -38,7 +50,7 @@ public class Add {
     }
 
     public List<Integer> getUnrepeatedFromEvenIndex(List<Integer> arrayList) {
-        throw new NotImplementedException();
+        return arrayList.stream().filter(i->i%2==0).distinct().collect(Collectors.toList());
     }
 
 //    public List<Integer> sortByEvenAndOdd(List<Integer> arrayList) {
